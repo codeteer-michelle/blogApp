@@ -9,9 +9,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save  
+    
+    if @post.save
+      redirect_to @post
+    else
+      # render allows us to render a different view within the same controller 
+      render 'new'  
+      # before we had: redirect_to @post but changed it because that would mean that if (for some reason) your post had a glitch then it would still "auto-save" and keeo you on the same http request. If we put redirect, then you would lose everything because it makes a new http request
 
-    redirect_to @post
+    end
   end
 
   def show
@@ -23,4 +29,3 @@ class PostsController < ApplicationController
         params.require(:post).permit(:title, :body)
   end
 end
- 
