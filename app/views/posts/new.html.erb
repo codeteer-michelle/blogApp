@@ -1,5 +1,5 @@
 <div id="page_wrapper">
-    <h1>New Postkbnj</h1>
+    <h1>New Post</h1>
 
 <%= form_for :post, url: posts_path do |f| %>
       <% if @post.errors.any? %>
@@ -19,7 +19,7 @@
 
     <p>
       <%= f.label :body %><br>
-      <%= f.text_area :title %>
+      <%= f.text_area :body %>
     </p>
 
     <p>
