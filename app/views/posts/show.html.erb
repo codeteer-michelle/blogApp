@@ -12,4 +12,13 @@
   <p class="body">
     <%= @post.body %>
   </p>
+
+  <div id="comments">
+    <h2><%= @post.comments.count %> Comments </h2>
+    <!-- first we render the _comments.html.erb which shows us the name, body, and time -->
+    <%= render @post.comments %> 
+   <!--  next we grab the form which shows us the form to post a comment -->
+   <h3> Add a comment: </h3>
+   <%= render "comments/form" %>
+   </div>
 </div>
