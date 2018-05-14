@@ -7,10 +7,12 @@
 
 
 <!-- if we delete a post, we need to make sure that the comments are deleted also so that the comments don't take up space in memory. We need to go and adjust the post MODEL-->
-  <p><%= link_to 'Delete', [comment.post, comment],
-    method: :delete,
-    class: "button",
-    data: { confirm: 'Are you sure?'} %>
+  <% if user_signed_in? %>
+    <p><%= link_to 'Delete', [comment.post, comment],
+      method: :delete,
+      class: "button",
+      data: { confirm: 'Are you sure?'} %>
+  <% end %>
   </p>
 
     </div>
